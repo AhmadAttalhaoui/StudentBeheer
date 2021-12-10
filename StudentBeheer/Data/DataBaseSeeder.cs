@@ -32,6 +32,14 @@ namespace StudentBeheer.Data
                     ) ;
                     context.SaveChanges();
                 }
+
+                if (!context.Inschrijvingen.Any())
+                {
+                    context.Inschrijvingen.AddRange(
+                        new Inschrijvingen { ModuleId = 1, StudentId = 1 },
+                        new Inschrijvingen { ModuleId = 2, StudentId = 2 });
+                    context.SaveChanges();
+                }
             }
         }
     }
